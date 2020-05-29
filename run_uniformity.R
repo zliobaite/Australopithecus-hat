@@ -1,6 +1,6 @@
 # 2019 11 26 I.Zliobaite
 
-# this is to accompany my commentary to Du et al 2020
+# this is to accompany my commentary to Du et al. (2020)
 # the script is not optimized for efficieny and contains a lot of "hard-coded" values, sorry about that
 # the random seed should allow to reproduce the runs exactly as reported in my commentary
 
@@ -36,7 +36,7 @@ tm_dif_index <- mov_agerage(tm,2)
 ind_range <- (1+param_hf):(29-param_hf)
   
 pdf('fig_observed.pdf',width = 7, heigh = 4)
-plot(tm_dif_index[ind_range],tm_mov,type = 'l',lwd = 3,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, MA', ylab = 'Mean gap between observations, MA')
+plot(tm_dif_index[ind_range],tm_mov,type = 'l',lwd = 3,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = 'Mean gap between observations, MA')
 dev.off()
 
 
@@ -65,7 +65,7 @@ rn_raw <- apply(data_rn_raw,2,mean)
 
 
 pdf('fig_both.pdf',width = 7, heigh = 4)
-plot(NA,NA,xlim=rev(range(tm_dif_index[ind_range])),ylim = c(0,0.09),xlab = 'Age, MA', ylab = 'Mean gap between observations, MA',main = '(c) Expected gaps with constant abundance')
+plot(NA,NA,xlim=rev(range(tm_dif_index[ind_range])),ylim = c(0,0.09),xlab = 'Age, Ma', ylab = 'Mean gap between observations, Ma',main = '(c) Expected gaps with constant abundance')
 lines(rn_dif_index[ind_range],rn_mn,type = 'l',lwd = 2,lty=5,col = 'grey50')
 lines(rn_dif_index[ind_range],rn_mn+rn_sd,type = 'l',lty=5,col = 'grey50')
 lines(rn_dif_index[ind_range],rn_mn-rn_sd,type = 'l',lty=5,col = 'grey50')
@@ -76,12 +76,12 @@ stp <- 1/29
 uniform_quantiles <- seq(0,1,stp)
 
 pdf('fig_uniformity_flat.pdf',width = 4.5, height = 4.5)
-plot(uniform_quantiles,rn_raw,ylim = rev(range(rn_raw)),pch=16,xlab = 'Uniform quantiles',ylab = 'Age, MA',main = '(e) Expectation with constant abundance')
+plot(uniform_quantiles,rn_raw,ylim = rev(range(rn_raw)),pch=16,xlab = 'Uniform quantiles',ylab = 'Age, Ma',main = '(e) Expectation with constant abundance')
 lines(c(0,1),c(t_max,t_min))
 dev.off()
 
 pdf('fig_uniformity_observed.pdf',width = 4.5, height = 4.5)
-plot(uniform_quantiles,tm,ylim = rev(range(tm)),pch=16,xlab = 'Uniform quantiles',ylab = '',main = '(f) Data from Du et al (2020)')
+plot(uniform_quantiles,tm,ylim = rev(range(tm)),pch=16,xlab = 'Uniform quantiles',ylab = '',main = '(f) Data from Du et al. (2020)')
 lines(c(0,1),c(t_max,t_min))
 dev.off()
 
@@ -116,7 +116,7 @@ rr_raw <- apply(data_rr_raw,2,mean)
 
 
 pdf('fig_peak.pdf',width = 7, heigh = 4)
-plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, MA', ylab = "", main = '(d) Expected gaps with waxing and vanning')
+plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = "", main = '(d) Expected gaps with waxing and vanning')
 lines(rr_dif_index[ind_range],rr_mn,type = 'l',lwd = 2,lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rr_mn+rr_sd,type = 'l',lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rr_mn-rr_sd,type = 'l',lty=5,col = 'grey50')
@@ -125,7 +125,7 @@ dev.off()
 
 pdf('fig_uniformity_peak.pdf',width = 4.5, height = 4.5)
 plot(uniform_quantiles,rr_raw,ylim = rev(range(rr_raw)),pch=16,xlab = 'Uniform quantiles',ylab = '',main = '(g) Expectation with waxing and vanning')
-#plot(uniform_quantiles,rr_raw,ylim = rev(range(rr_raw)),pch=16,xlab = 'Uniform quantiles',ylab = "Mean gap between observations, MA")
+#plot(uniform_quantiles,rr_raw,ylim = rev(range(rr_raw)),pch=16,xlab = 'Uniform quantiles',ylab = "Mean gap between observations, Ma")
 lines(c(0,1),c(t_max,t_min))
 dev.off()
 
@@ -148,7 +148,7 @@ polygon(c(t_min+21*slot_length,t_min+28*slot_length,t_min+28*slot_length,t_min+2
 dev.off()
 
 pdf('fig_abund_flat.pdf',width = 7, heigh = 3)
-plot(NA,NA,ylim = c(0,4.1),xlim=rev(range(t_min,t_max)),xlab = 'Age, MA', ylab = 'Abundance',yaxt='n', main = '(a) Constant abundance')
+plot(NA,NA,ylim = c(0,4.1),xlim=rev(range(t_min,t_max)),xlab = 'Age, Ma', ylab = 'Abundance',yaxt='n', main = '(a) Constant abundance')
 lines(c(t_min,t_max),c(28/28,28/28))
 polygon(c(t_min,t_max,t_max,t_min),c(28/28,28/28,0,0),col="black",border = FALSE)
 dev.off()
@@ -185,7 +185,7 @@ rv_sd <- apply(data_rv,2,sd)
 rv_raw <- apply(data_rv_raw,2,mean)
 
 pdf('fig_noise.pdf',width = 7, heigh = 4)
-plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, MA', ylab = 'Mean gap between observations, MA')
+plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = 'Mean gap between observations, Ma')
 lines(rr_dif_index[ind_range],rv_mn,type = 'l',lwd = 2,lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rv_mn+rv_sd,type = 'l',lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rv_mn-rv_sd,type = 'l',lty=5,col = 'grey50')
@@ -193,7 +193,6 @@ lines(tm_dif_index[ind_range],tm_mov,type = 'l',lwd = 3,col='black')
 dev.off()
 
 pdf('fig_uniformity_noise.pdf',width = 4.5, height = 4.5)
-plot(uniform_quantiles,rv_raw,ylim = rev(range(rv_raw)),pch=16,xlab = 'Uniform quantiles',ylab = 'Age, MA')
+plot(uniform_quantiles,rv_raw,ylim = rev(range(rv_raw)),pch=16,xlab = 'Uniform quantiles',ylab = 'Age, Ma')
 lines(c(0,1),c(t_max,t_min))
 dev.off()
-
