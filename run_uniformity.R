@@ -36,7 +36,7 @@ tm_dif_index <- mov_agerage(tm,2)
 ind_range <- (1+param_hf):(29-param_hf)
   
 pdf('fig_observed.pdf',width = 7, heigh = 4)
-plot(tm_dif_index[ind_range],tm_mov,type = 'l',lwd = 3,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = 'Mean gap between observations, MA')
+plot(tm_dif_index[ind_range],tm_mov,type = 'l',lwd = 3,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = 'Mean age gap between observations, MA')
 dev.off()
 
 
@@ -65,7 +65,7 @@ rn_raw <- apply(data_rn_raw,2,mean)
 
 
 pdf('fig_both.pdf',width = 7, heigh = 4)
-plot(NA,NA,xlim=rev(range(tm_dif_index[ind_range])),ylim = c(0,0.09),xlab = 'Age, Ma', ylab = 'Mean gap between observations, Ma',main = '(c) Expected gaps with constant abundance')
+plot(NA,NA,xlim=rev(range(tm_dif_index[ind_range])),ylim = c(0,0.09),xlab = 'Age, Ma', ylab = 'Mean age gap between observations, Ma',main = '(c) Expected age gaps with constant abundance')
 lines(rn_dif_index[ind_range],rn_mn,type = 'l',lwd = 2,lty=5,col = 'grey50')
 lines(rn_dif_index[ind_range],rn_mn+rn_sd,type = 'l',lty=5,col = 'grey50')
 lines(rn_dif_index[ind_range],rn_mn-rn_sd,type = 'l',lty=5,col = 'grey50')
@@ -116,7 +116,7 @@ rr_raw <- apply(data_rr_raw,2,mean)
 
 
 pdf('fig_peak.pdf',width = 7, heigh = 4)
-plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = "", main = '(d) Expected gaps with waxing and vanning')
+plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = "", main = '(d) Expected age gaps with waxing and waning')
 lines(rr_dif_index[ind_range],rr_mn,type = 'l',lwd = 2,lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rr_mn+rr_sd,type = 'l',lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rr_mn-rr_sd,type = 'l',lty=5,col = 'grey50')
@@ -124,13 +124,13 @@ lines(tm_dif_index[ind_range],tm_mov,type = 'l',lwd = 4,col='black')
 dev.off()
 
 pdf('fig_uniformity_peak.pdf',width = 4.5, height = 4.5)
-plot(uniform_quantiles,rr_raw,ylim = rev(range(rr_raw)),pch=16,xlab = 'Uniform quantiles',ylab = '',main = '(g) Expectation with waxing and vanning')
-#plot(uniform_quantiles,rr_raw,ylim = rev(range(rr_raw)),pch=16,xlab = 'Uniform quantiles',ylab = "Mean gap between observations, Ma")
+plot(uniform_quantiles,rr_raw,ylim = rev(range(rr_raw)),pch=16,xlab = 'Uniform quantiles',ylab = '',main = '(g) Expectation with waxing and waning')
+#plot(uniform_quantiles,rr_raw,ylim = rev(range(rr_raw)),pch=16,xlab = 'Uniform quantiles',ylab = "Mean age gap between observations, Ma")
 lines(c(0,1),c(t_max,t_min))
 dev.off()
 
 pdf('fig_abund_peak.pdf',width = 7, heigh = 3)
-plot(NA,NA,ylim = c(0,4.1),xlim=rev(range(t_min,t_max)),xlab = 'Age, MA', ylab = '',yaxt='n',main = '(b) Waxing and vanning abundance')
+plot(NA,NA,ylim = c(0,4.1),xlim=rev(range(t_min,t_max)),xlab = 'Age, Ma', ylab = '',yaxt='n',main = '(b) Waxing and waning abundance')
 lines(c(t_min,t_min+8*slot_length),c(4/8,4/8))
 polygon(c(t_min,t_min+8*slot_length,t_min+8*slot_length,t_min),c(4/8,4/8,0,0),col="black",border = FALSE)
 lines(c(t_min+8*slot_length,t_min+12*slot_length),c(4/4,4/4))
@@ -185,7 +185,7 @@ rv_sd <- apply(data_rv,2,sd)
 rv_raw <- apply(data_rv_raw,2,mean)
 
 pdf('fig_noise.pdf',width = 7, heigh = 4)
-plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = 'Mean gap between observations, Ma')
+plot(NA,NA,ylim = c(0,0.09),xlim=rev(range(tm_dif_index[ind_range])),xlab = 'Age, Ma', ylab = 'Mean age gap between observations, Ma')
 lines(rr_dif_index[ind_range],rv_mn,type = 'l',lwd = 2,lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rv_mn+rv_sd,type = 'l',lty=5,col = 'grey50')
 lines(rr_dif_index[ind_range],rv_mn-rv_sd,type = 'l',lty=5,col = 'grey50')
